@@ -1,7 +1,19 @@
 # GoKanjiVG
 This go module lets you interact with the [KanjiVG](https://github.com/KanjiVG/kanjivg) dataset in Go.
 
-# Documentation
+## Licence
+Since GoKanjiVG is a wrapper for KanjiVG you need to respect their license.
+
+KanjiVG is released under the Creative Commons
+Attribution-Share Alike 3.0 licence:
+
+https://creativecommons.org/licenses/by-sa/3.0/
+
+As such GoKanjiVG is released under the same license.
+
+See the file COPYING for more details.
+
+## Documentation
 ### Methods
 #### kanjivg.GetSVGForCharacter
 ```
