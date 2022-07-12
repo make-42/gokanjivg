@@ -1,8 +1,8 @@
 package kanjivg
 
 import (
+	"embed"
 	"fmt"
-	"os"
 	"path/filepath"
 	"strings"
 	"unicode/utf8"
@@ -11,6 +11,9 @@ import (
 )
 
 var KanjiVGDataPath = "./deps/kanjivg/kanji/"
+
+//go:embed deps/kanjivg/kanji/*
+var f embed.FS
 
 func SetKanjiVGDataPath(NewKanjiVGDataPath string) {
 	KanjiVGDataPath = NewKanjiVGDataPath
@@ -28,6 +31,7 @@ func SetColorOfStroke(svgData, hexColor string, strokeNumber int) string {
 
 func GetSVGForCharacter(character string) (string, error) {
 	rune, _ := utf8.DecodeRuneInString(character)
-	dat, err := os.ReadFile(filepath.Join(KanjiVGDataPath, fmt.Sprintf("%05x.svg", rune)))
+
+	dat, err := f.ReadFile(filepath.Join(KanjiVGDataPath, fmt.Sprintf("%05x.svg", rune)))
 	return string(dat), err
 }
