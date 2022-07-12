@@ -21,6 +21,11 @@ func GetDoubleSpectrumColor(strokeNumber, strokeCount int, saturation, value flo
 	return fmt.Sprintf("#%02x%02x%02x", r, g, b)
 }
 
+func GetPastelColor(strokeNumber int) string {
+	possibleColors := []string{"4C3B4D", "624B58", "775A62", "A17A78", "CC998D", "8FB7A3", "53D6BA", "2CC9BB", "429EA6", "153B50"}
+	return fmt.Sprintf("#%s", possibleColors[strokeNumber%len(possibleColors)])
+}
+
 // Mode can be "spectrum"
 func Colorize(character, mode string, saturation, value float64) (string, error) {
 	svgData, err := kanjivg.GetSVGForCharacter(character)
@@ -33,6 +38,9 @@ func Colorize(character, mode string, saturation, value float64) (string, error)
 			break
 		case "double-spectrum":
 			hexColor = GetDoubleSpectrumColor(i, strokeCount, saturation, value)
+			break
+		case "pastel":
+			hexColor = GetPastelColor(i)
 			break
 		default:
 			hexColor = "#000000"
