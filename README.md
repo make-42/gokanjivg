@@ -1,5 +1,5 @@
 # GoKanjiVG
-This go module lets you interact with the [KanjiVG](https:/github.com/KanjiVG/kanjivg) dataset in Go.
+This go module lets you interact with the [KanjiVG](https://github.com/KanjiVG/kanjivg) dataset in Go.
 
 # Documentation
 ### Methods
