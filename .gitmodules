@@ -1,0 +1,3 @@
+[submodule "deps/kanjivg"]
+	path = deps/kanjivg
+	url = https://github.com/KanjiVG/kanjivg
