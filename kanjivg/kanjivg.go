@@ -2,6 +2,7 @@ package kanjivg
 
 import (
 	"embed"
+	_ "embed"
 	"fmt"
 	"path/filepath"
 	"strings"
@@ -10,14 +11,8 @@ import (
 	"github.com/make-42/gokanjivg/utils"
 )
 
-var KanjiVGDataPath = "./deps/kanjivg/kanji/"
-
 //go:embed deps/kanjivg/kanji/*
 var f embed.FS
-
-func SetKanjiVGDataPath(NewKanjiVGDataPath string) {
-	KanjiVGDataPath = NewKanjiVGDataPath
-}
 
 func GetStrokeCount(svgData string) int {
 	return strings.Count(svgData, "<path")
@@ -32,6 +27,6 @@ func SetColorOfStroke(svgData, hexColor string, strokeNumber int) string {
 func GetSVGForCharacter(character string) (string, error) {
 	rune, _ := utf8.DecodeRuneInString(character)
 
-	dat, err := f.ReadFile(filepath.Join(KanjiVGDataPath, fmt.Sprintf("%05x.svg", rune)))
+	dat, err := f.ReadFile(filepath.Join("./deps/kanjivg/kanji/", fmt.Sprintf("%05x.svg", rune)))
 	return string(dat), err
 }
