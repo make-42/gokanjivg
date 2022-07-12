@@ -26,7 +26,7 @@ func GetPastelColor(strokeNumber int) string {
 	return fmt.Sprintf("#%s", possibleColors[strokeNumber%len(possibleColors)])
 }
 
-// Mode can be "spectrum"
+// Mode can be "spectrum", "double-spectrum" or "pastel"
 func Colorize(character, mode string, saturation, value float64) (string, error) {
 	svgData, err := kanjivg.GetSVGForCharacter(character)
 	strokeCount := kanjivg.GetStrokeCount(svgData)
