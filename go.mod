@@ -1,4 +1,4 @@
-module github.com/make-42/gokanjivg
+module github.com/make-42/gokanjivg v1.0.0
 
 go 1.18
 
